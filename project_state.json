@@ -1,0 +1,111 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 7,
+  "summary": "Payment submission form app with customer-facing fields (Name, Address, Email, 16-digit card number, expiry date, CVV, amount) and admin access. Light theme using white and green or blue colors, with credit card and swiping machine visuals.",
+  "architectural_notes": [
+    "Form includes sensitive card data fields (16-digit card number, CVV, expiry) — ensure masked input and secure handling",
+    "Admin access requires authentication to protect submitted payment records",
+    "Payment submission page is public — no login or authentication required for customers"
+  ],
+  "known_issues": [
+    "Form submission fails with 'Submission failed. Please try again.' error",
+    "Admin panel password protection not functioning correctly"
+  ],
+  "isFixRequest": true,
+  "existing_features": [
+    {
+      "id": "feature-create-a-customer-facing-payment-submission-form-with-the-following-fields-full-name-address-email-16-digit-card-number-with-auto-formatting-every-4-digits-expiration-date-mm-yy-cvv-and-payment-amount-validate-all-fields-before-submission-card-number-must-be-16-digits-cvv-3-digits-email-format-valid-expiry-date-not-in-the-past-amount-must-be-positive",
+      "title": "Create a customer-facing payment submission form with the following fields: Full Name, Address, Email, 16-digit Card Number (with auto-formatting every 4 digits), Expiration Date (MM/YY), CVV, and Payment Amount. Validate all fields before submission (card number must be 16 digits, CVV 3 digits, email format valid, expiry date not in the past, amount must be positive).",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-an-admin-panel-accessible-via-a-separate-route-or-toggle-that-displays-all-submitted-payment-records-in-a-table-the-admin-view-should-show-full-name-email-masked-card-number-amount-and-submission-date-time-protect-the-admin-panel-with-a-simple-pin-or-password-gate-hardcoded-admin-password-is-acceptable-for-now",
+      "title": "Implement an admin panel accessible via a separate route or toggle that displays all submitted payment records in a table. The admin view should show: Full Name, Email, masked card number, Amount, and submission date/time. Protect the admin panel with a simple PIN or password gate (hardcoded admin password is acceptable for now).",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-light-theme-across-the-entire-app-using-a-white-background-with-green-and-blue-accent-colors-typography-should-be-clean-and-modern-use-a-consistent-color-palette-white-base-green-primary-actions-submit-button-blue-secondary-accents-links-highlights-include-an-animated-or-illustrated-credit-card-visual-on-the-payment-form-page-and-a-pos-swiping-machine-illustration-to-reinforce-the-payment-context",
+      "title": "Apply a light theme across the entire app using a white background with green and blue accent colors. Typography should be clean and modern. Use a consistent color palette: white base, green primary actions (submit button), blue secondary accents (links, highlights). Include an animated or illustrated credit card visual on the payment form page, and a POS/swiping machine illustration to reinforce the payment context.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-fix-the-payment-form-submission-flow-so-that-submitting-valid-payment-data-succeeds-without-displaying-submission-failed-please-try-again-investigate-and-resolve-the-root-cause-in-the-backend-actor-call-actor-initialization-or-data-serialization-path",
+      "title": "Fix the payment form submission flow so that submitting valid payment data succeeds without displaying 'Submission failed. Please try again.' — investigate and resolve the root cause in the backend actor call, actor initialization, or data serialization path.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-fix-the-admin-panel-password-gate-so-that-entering-the-correct-hardcoded-admin-password-grants-access-to-the-admin-dashboard-and-entering-an-incorrect-password-shows-a-clear-error-message-and-denies-access",
+      "title": "Fix the admin panel password gate so that entering the correct hardcoded admin password grants access to the admin dashboard, and entering an incorrect password shows a clear error message and denies access.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-the-internet-identity-authentication-requirement-from-the-payment-submission-page-customers-must-be-able-to-fill-out-and-submit-the-payment-form-without-logging-in-or-being-prompted-to-authenticate-the-paymentform-component-should-not-check-for-or-enforce-login-state-before-allowing-form-submission",
+      "title": "Remove the Internet Identity authentication requirement from the payment submission page. Customers must be able to fill out and submit the payment form without logging in or being prompted to authenticate. The PaymentForm component should not check for or enforce login state before allowing form submission.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Customer payment form with fields: Name, Address, Email, 16-digit card number, expiry date, CVV, and amount",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Admin access panel to view/manage submitted payment data",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Light theme UI with white and green/blue colors, credit card and swiping machine visuals",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Store submitted payment records in the backend. Each record should include: Full Name, Address, Email, masked card number (last 4 digits only), Expiration Date, Amount, and submission timestamp. Do NOT store the full card number or CVV in the backend.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Remove login/authentication requirement from the payment submission page — customers should be able to submit payments without logging in",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Update the backend payment submission endpoint to accept anonymous calls (i.e., do not restrict the submitPayment function to authenticated callers only). The actor should process payment submissions from unauthenticated (anonymous) identities.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Payment Submission Form",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

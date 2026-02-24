@@ -1,0 +1,60 @@
+{
+  "kind": "build_request",
+  "title": "Remove login requirement from payment submission page",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-7",
+      "text": "Remove the Internet Identity authentication requirement from the payment submission page. Customers must be able to fill out and submit the payment form without logging in or being prompted to authenticate. The PaymentForm component should not check for or enforce login state before allowing form submission.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-recent"
+        ],
+        "quotes": [
+          "remove Login required to submit payment",
+          "yes..no login need in sumission page..."
+        ]
+      },
+      "acceptanceCriteria": [
+        "The payment form at '/' renders and is fully interactive without any Internet Identity login prompt",
+        "Submitting valid payment data succeeds without any authentication step",
+        "No 'Login required' message, login button, or identity gate is shown on the payment page",
+        "The PaymentForm component does not depend on or check authentication state before enabling the submit button"
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Update the backend payment submission endpoint to accept anonymous calls (i.e., do not restrict the submitPayment function to authenticated callers only). The actor should process payment submissions from unauthenticated (anonymous) identities.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-recent"
+        ],
+        "quotes": [
+          "remove Login required to submit payment",
+          "yes..no login need in sumission page..."
+        ]
+      },
+      "acceptanceCriteria": [
+        "The submitPayment backend function accepts calls from anonymous identities without returning an authorization error",
+        "Payment records submitted anonymously are stored and visible in the admin panel",
+        "Existing admin-only functions remain protected and unaffected"
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not remove authentication from the admin panel — it must remain password-protected",
+    "Do not store full card numbers or CVV in the backend",
+    "Do not modify files under frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, or frontend/src/components/ui"
+  ],
+  "nonGoals": [
+    "Removing authentication from the admin panel or admin password gate",
+    "Changing the payment form fields or validation rules",
+    "Modifying the visual theme or layout of the payment page"
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "backend/main.mo": "Main Motoko actor implementing a payment submission system with Stripe integration, user profiles, masked card storage, and role-based access control (admin/user permissions).",
+  "feature_evidence.json": "Feature evidence report confirming that the PaymentForm component was updated to remove Internet Identity authentication requirements, allowing unauthenticated payment form submission.",
+  "frontend-file-summaries.txt": "JSON document containing one-sentence summaries of each frontend source file, describing their purpose and key implementation details.",
+  "frontend/index.css": "Tailwind CSS entry file defining OKLCH-based CSS custom properties for light and dark themes including colors, borders, and sidebar variables.",
+  "frontend/index.html": "Minimal HTML shell for the React app titled 'Payment Submission Form' that mounts the app at the root div and loads the main TSX entry point.",
+  "frontend/src/App.tsx": "Main React app entry defining TanStack Router routes for the payment and admin pages, plus a shared Layout with a sticky header, navigation links, and a footer with caffeine.ai attribution.",
+  "frontend/src/components/AdminPanel.tsx": "Admin dashboard component that displays payment record statistics (total submissions, total amount, average transaction) and a paginated data table with masked card numbers and formatted timestamps.",
+  "frontend/src/components/AdminPasswordGate.tsx": "Password gate component for admin access that requires Internet Identity login first, then verifies an admin password via the backend before granting access to the AdminPanel.",
+  "frontend/src/components/CreditCardVisual.tsx": "Renders a styled visual credit card component displaying card number, holder name, and expiry date with decorative chip, shine overlay, and VISA branding.",
+  "frontend/src/components/PaymentForm.tsx": "A multi-field payment form with client-side validation, card number/expiry formatting, live credit card visual preview, and submission via the useSubmitPayment mutation hook.",
+  "frontend/src/components/POSMachineVisual.tsx": "Renders a decorative POS terminal illustration with a screen, keypad, card slot, and an NFC/tap-to-pay indicator using pure Tailwind styling.",
+  "frontend/src/hooks/useActor.ts": "Creates and caches an ICP backend actor (authenticated or anonymous) using React Query, reinitializing it when the Internet Identity changes and invalidating dependent queries accordingly.",
+  "frontend/src/hooks/useInternetIdentity.ts": "Provides an Internet Identity authentication context with login/logout functionality, identity persistence via AuthClient, and a React context provider/hook for consuming auth state.",
+  "frontend/src/hooks/useQueries.ts": "Defines React Query hooks for submitting payments, fetching all payment records, and verifying admin passwords against the ICP backend actor.",
+  "frontend/src/index.css": "Global stylesheet importing Inter and Poppins fonts, configuring Tailwind with OKLCH-based CSS custom properties for theming, and defining utility classes for card gradients, glows, and shadows.",
+  "frontend/src/main.tsx": "Application entry point that mounts the React app wrapped with QueryClientProvider and InternetIdentityProvider.",
+  "frontend/src/pages/AdminPage.tsx": "Admin dashboard page that gates access behind a password component and renders the AdminPanel once authenticated, with sign-out functionality that clears identity and query cache.",
+  "frontend/src/pages/PaymentPage.tsx": "Customer-facing payment page that displays a PaymentForm alongside decorative credit card/POS machine visuals, trust badges, and a review snippet on larger screens.",
+  "frontend/src/utils/urlParams.ts": "Utility module for extracting URL parameters from both query strings and hash-based routes, with helpers to persist, retrieve, and clear those values via sessionStorage.",
+  "frontend/tailwind.config.js": "Tailwind CSS configuration defining custom fonts, an oklch-based color palette (emerald, sky, semantic tokens), extended border radii, box shadows, and animation keyframes.",
+  "project_state.json": "Project state manifest (version 7) describing the app's features, architectural notes, known issues (form submission failure, admin password gate), and fix requests for the payment and admin flows."
+}

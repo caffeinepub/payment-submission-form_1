@@ -1,0 +1,47 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-24T21:41:21.329Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 2,
+    "implemented": 1,
+    "items": [
+      {
+        "id": "REQ-7",
+        "summary": "Remove the Internet Identity authentication requirement from the payment submission page. Customers must be able to fill out and submit the payment form without logging in or being prompted to authenticate. The PaymentForm component should not check for or enforce login state before allowing form submission.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/PaymentForm.tsx",
+          "frontend/src/hooks/useQueries.ts",
+          "frontend/src/pages/PaymentPage.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/PaymentForm.tsx"
+        ]
+      },
+      {
+        "id": "REQ-8",
+        "summary": "Update the backend payment submission endpoint to accept anonymous calls (i.e., do not restrict the submitPayment function to authenticated callers only). The actor should process payment submissions from unauthenticated (anonymous) identities.",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      }
+    ]
+  },
+  "changedFiles": [
+    "backend/main.mo",
+    "build-request.json",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/src/components/PaymentForm.tsx",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

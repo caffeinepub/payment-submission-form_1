@@ -1,0 +1,13 @@
+{
+  "frontend/src/index.css": "Global styles with OKLCH color system using white base, emerald green primary, and sky blue secondary; includes custom utility classes for card gradients, glow effects, and animations.",
+  "frontend/tailwind.config.js": "Extended Tailwind config with Inter/Poppins fonts, emerald green and sky blue color palettes, custom shadows, and card/POS floating animations.",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks for payment submission (useSubmitPayment), fetching all admin payment records (useGetAllPaymentRecords), and verifying admin password (useVerifyAdminPassword) — all with proper error propagation and meaningful console logs.",
+  "frontend/src/components/CreditCardVisual.tsx": "Animated interactive credit card component that displays live card number, holder name, and expiry date with a gradient design and chip visual. Fixed TypeScript error by explicitly typing the `groups` variable as `string[]` and adding a return type annotation to `formatDisplay`.",
+  "frontend/src/components/POSMachineVisual.tsx": "SVG-based POS terminal illustration with a green screen, numeric keypad, action buttons, and NFC tap indicator.",
+  "frontend/src/components/PaymentForm.tsx": "Full payment form with 7 fields, field-level validation, live card preview, and success confirmation screen — no authentication required; any visitor can submit a payment directly.",
+  "frontend/src/components/AdminPanel.tsx": "Admin dashboard showing payment record statistics (total submissions, total amount, average transaction) and a full data table with masked card numbers and formatted timestamps.",
+  "frontend/src/components/AdminPasswordGate.tsx": "Password gate component for admin access that now requires Internet Identity login first, shows a login prompt for unauthenticated users, displays inline error messages (including \"Incorrect password\"), and only proceeds to the AdminPanel after the backend confirms the password is correct.",
+  "frontend/src/pages/PaymentPage.tsx": "Payment page layout with the form on the right and credit card/POS illustrations, trust badges, and a testimonial on the left for desktop views.",
+  "frontend/src/pages/AdminPage.tsx": "Admin page that conditionally renders the password gate or the full admin panel, with a sign-out button that clears both the auth state and React Query cache, and a branded sticky header showing authentication status.",
+  "frontend/src/App.tsx": "Main app with TanStack Router setup, Layout component containing sticky header with navigation links, and footer with dynamic year and caffeine.ai attribution."
+}

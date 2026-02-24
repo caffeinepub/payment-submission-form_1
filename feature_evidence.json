@@ -1,0 +1,26 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-remove-the-internet-identity-authentication-requirement-from-the-payment-submission-page-customers-must-be-able-to-fill-out-and-submit-the-payment-form-without-logging-in-or-being-prompted-to-authenticate-the-paymentform-component-should-not-check-for-or-enforce-login-state-before-allowing-form-submission",
+      "featureTitle": "Remove the Internet Identity authentication requirement from the payment submission page. Customers must be able to fill out and submit the payment form without logging in or being prompted to authenticate. The PaymentForm component should not check for or enforce login state before allowing form submission.",
+      "files": [
+        "frontend/src/components/PaymentForm.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "stripe@3.0.0",
+        "http-outcalls@3.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

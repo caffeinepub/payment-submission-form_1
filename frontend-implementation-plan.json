@@ -1,0 +1,34 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Remove login requirement from payment submission page",
+  "requirements": [
+    {
+      "id": "REQ-7",
+      "summary": "Remove Internet Identity authentication requirement from the payment submission page, allowing customers to submit payments without logging in",
+      "acceptanceCriteria": [
+        "The payment form at '/' renders and is fully interactive without any Internet Identity login prompt",
+        "Submitting valid payment data succeeds without any authentication step",
+        "No 'Login required' message, login button, or identity gate is shown on the payment page",
+        "The PaymentForm component does not depend on or check authentication state before enabling the submit button"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/PaymentForm.tsx",
+          "operation": "modify",
+          "description": "Remove all Internet Identity authentication checks and gates from the PaymentForm component. Remove any conditional rendering that requires authentication before showing the form. Remove any identity-dependent logic from the form submission flow. Ensure the form renders and submits for both authenticated and anonymous users without checking login state."
+        },
+        {
+          "path": "frontend/src/hooks/useQueries.ts",
+          "operation": "modify",
+          "description": "Update the submitPayment mutation to work with both authenticated and anonymous actors. Remove any authentication prerequisite checks. Ensure the mutation uses the actor provided by useActor regardless of authentication state."
+        },
+        {
+          "path": "frontend/src/pages/PaymentPage.tsx",
+          "operation": "modify",
+          "description": "Remove any authentication gates or login prompts from the PaymentPage component. Ensure the page renders the PaymentForm without requiring Internet Identity login. Remove any conditional logic that checks authentication state before displaying payment content."
+        }
+      ]
+    }
+  ]
+}
